@@ -1,19 +1,19 @@
-
 import mne
 import matplotlib.pyplot as plt
+import numpy as np
 
-# загружаем файл
 raw = mne.io.read_raw_edf("data/S001R01.edf", preload=True)
 
-# достаём данные
 data = raw.get_data()
 
-# берём 1 канал
-signal = data[0]
+signal = data[0] * 1e6  # перевод в микровольты
 
-# рисуем
-plt.plot(signal)
+sfreq = raw.info['sfreq']  # частота дискретизации
+
+time = np.arange(len(signal)) / sfreq
+
+plt.plot(time, signal)
 plt.title("EEG signal (channel 1)")
-plt.xlabel("Time")
-plt.ylabel("Amplitude")
+plt.xlabel("Time (s)")
+plt.ylabel("Amplitude (µV)")
 plt.show()
