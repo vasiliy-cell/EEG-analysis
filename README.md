@@ -18,6 +18,7 @@ own 100 lines of Python.
 ![alpha power comparison](./Screenshot%202026-08-31%20at%2011.37.37.png)
 
 ### the numbers
+(i took data from this website https://github.com/vasiliy-cell/EEG-analysis )
 
 Channel **O1** (occipital — alpha is strongest at the back of the head),
 integrating the Welch PSD over 8–13 Hz:
